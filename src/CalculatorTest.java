@@ -38,6 +38,7 @@ public class CalculatorTest {
 ////	//
 	@Test
 	public void testWithChangeDelimiter() {
+		assertTrue(new Calculator().add("//;\n1\n2;3,4") == 10);
 		assertTrue(new Calculator().add("//[;]\n1\n2;3,4") == 10);
 		assertTrue(new Calculator().add("//[aaa][b3b]\n1\n2aaa3,4") == 10);
 		assertTrue(new Calculator().add("//[aaa]\n1\n2aaa3,4") == 10);
@@ -84,6 +85,6 @@ public class CalculatorTest {
 	@Test
 	public void testWithMultiDelimiter() {
 		assertTrue(new Calculator().add("//[aaa][bbb][ccc]\n1aaa2bbb3ccc4") == 10);
-		assertTrue(new Calculator().add("//[55erffdsfdsfa(*&%$$$]]]]]]]]]]][sdfsadf%&^%&]\n155erffdsfdsfa(*&%$$$]]]]]]]]]]100sdfsadf%&^%&900")==1001);
+		assertTrue(new Calculator().add("//[55erffdsfdsfa(*&%$$$]],\n]]]]]]]]][sdfsadf%&^%&]\n155erffdsfdsfa(*&%$$$]],\n]]]]]]]]100sdfsadf%&^%&900")==1001);
 	}
 }
